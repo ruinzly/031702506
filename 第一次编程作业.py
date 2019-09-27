@@ -265,7 +265,7 @@ if x[0]=="1":
 
 
 
-if x[0]=='2':
+else:
     x=re.sub('2!',"",x,1)
     x = re.sub("1!", "", x, 1)
     x = re.sub("省", "", x, 1)
@@ -373,4 +373,4 @@ if x[0]=='2':
     Json = json.dumps(dict, indent=4, ensure_ascii=False)
     print(Json)
    # print(dict1)
-else:
+

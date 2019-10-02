@@ -176,7 +176,7 @@ if x[0]=="1":
     x = re.sub("自治区", "", x, 1)
     x = re.sub("维吾尔族自治区", "", x, 1)
     x = re.sub("壮族自治区", "", x, 1)
-    print(x)
+    #print(x)
     llist=x.split(",",1)
     dict={}
     dict["姓名"]=llist[0]

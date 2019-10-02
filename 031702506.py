@@ -263,7 +263,7 @@ while(1):
         dict1.append(m)
         dict["地址"] = dict1
         # print(dict)
-        Json = json.dumps(dict, indent=4, ensure_ascii=False)
+        Json = json.dumps(dict,ensure_ascii=False)
         print(Json)
 
 
@@ -373,7 +373,7 @@ while(1):
             dict1.append("")
         dict1.append(m)
         dict["地址"] = dict1
-        Json = json.dumps(dict, indent=4, ensure_ascii=False)
+        Json = json.dumps(dict, ensure_ascii=False)
         print(Json)
     # print(dict1)
 

@@ -167,210 +167,213 @@ import re
 import json
 province=shengfen()
 city=chengshi()
-x=input()
-x = x.replace(".", "")
-if x[0]=="1":
-    x=re.sub("1!","",x,1)
-    x = re.sub("省", "", x, 1)
-    x = re.sub("回族自治区", "", x, 1)
-    x = re.sub("自治区", "", x, 1)
-    x = re.sub("维吾尔族自治区", "", x, 1)
-    x = re.sub("壮族自治区", "", x, 1)
-    #print(x)
-    llist=x.split(",",1)
-    dict={}
-    dict["姓名"]=llist[0]
-    y=re.findall(r"\d\d\d\d\d\d\d\d\d\d\d",llist[1])
-    #print(y)
-   # y=re.findall(r"\d\d\d\d\d\d\d\d\d\d\d",llist[1])
-    dict["手机"] =y[0]
-    m=re.sub(y[0],"",llist[1],1)#原地址中去掉号码
-   # print(m)
-   # print(dict)
-    dict1=[]
-    for i in range(len(province)):
-        p=re.match(province[i],m)
-        if(p):
-            s=i
-            ss=p.group()
-            if(i<4):
-               dict1.append(ss)
-            elif(5<i<26):
-                ss2=p.group()
-                ss=p.group()+'省'
-                dict1.append(ss)
-                m=re.sub(ss2,"",m,1)
+while(1):
+    x = input()
+    if(x == "END"):
+        break
+    x = x.replace(".", "")
+    if x[0] == "1":
+        x = re.sub("1!", "", x, 1)
+        x = re.sub("省", "", x, 1)
+        x = re.sub("回族自治区", "", x, 1)
+        x = re.sub("自治区", "", x, 1)
+        x = re.sub("维吾尔族自治区", "", x, 1)
+        x = re.sub("壮族自治区", "", x, 1)
+        # print(x)
+        llist = x.split(",", 1)
+        dict = {}
+        dict["姓名"] = llist[0]
+        y = re.findall(r"\d\d\d\d\d\d\d\d\d\d\d", llist[1])
+        # print(y)
+        # y=re.findall(r"\d\d\d\d\d\d\d\d\d\d\d",llist[1])
+        dict["手机"] = y[0]
+        m = re.sub(y[0], "", llist[1], 1)  # 原地址中去掉号码
+        # print(m)
+        # print(dict)
+        dict1 = []
+        for i in range(len(province)):
+            p = re.match(province[i], m)
+            if (p):
+                s = i
+                ss = p.group()
+                if (i < 4):
+                    dict1.append(ss)
+                elif (5 < i < 26):
+                    ss2 = p.group()
+                    ss = p.group() + '省'
+                    dict1.append(ss)
+                    m = re.sub(ss2, "", m, 1)
 
-            elif(i==27):
-                ss2 = p.group()
-                ss=p.group()+'回族自治区'
-                dict1.append(ss)
-                m = re.sub(ss2, "", m, 1)
-            elif(27<i<30):
-                ss2 = p.group()
-                ss=p.group()+'自治区'
-                dict1.append(ss)
-                m = re.sub(ss2, "", m, 1)
-            elif(i==30):
-                ss2 = p.group()
-                ss=p.group()+'维吾尔族自治区'
-                dict1.append(ss)
-                m = re.sub(ss2, "", m, 1)
-            else:
-                ss2 = p.group()
-                ss=p.group()+'壮族自治区'
-                dict1.append(ss)
-                m = re.sub(ss2, "", m, 1)
-            break
+                elif (i == 27):
+                    ss2 = p.group()
+                    ss = p.group() + '回族自治区'
+                    dict1.append(ss)
+                    m = re.sub(ss2, "", m, 1)
+                elif (27 < i < 30):
+                    ss2 = p.group()
+                    ss = p.group() + '自治区'
+                    dict1.append(ss)
+                    m = re.sub(ss2, "", m, 1)
+                elif (i == 30):
+                    ss2 = p.group()
+                    ss = p.group() + '维吾尔族自治区'
+                    dict1.append(ss)
+                    m = re.sub(ss2, "", m, 1)
+                else:
+                    ss2 = p.group()
+                    ss = p.group() + '壮族自治区'
+                    dict1.append(ss)
+                    m = re.sub(ss2, "", m, 1)
+                break
 
-    for j in range(len(city[s])):
-        q=re.match(city[s][j],m)
-       # print(m)
-        if(q):
-            s1=q
-            ss1=q.group()+'市'
-            #print(ss1)
-            dict1.append(ss1)
-            w=re.match(ss1,m)
-            if w:
-                m=re.sub(ss1,"",m,1)
-            else:
-                m=re.sub(q.group(),"",m,1)
-            #dict1.append(ss1)
-            break
-        if j == len(city[s]) - 1:
-            if q == None:
-                dict1.append(" ")
-    #print(dict1)
+        for j in range(len(city[s])):
+            q = re.match(city[s][j], m)
+            # print(m)
+            if (q):
+                s1 = q
+                ss1 = q.group() + '市'
+                # print(ss1)
+                dict1.append(ss1)
+                w = re.match(ss1, m)
+                if w:
+                    m = re.sub(ss1, "", m, 1)
+                else:
+                    m = re.sub(q.group(), "", m, 1)
+                # dict1.append(ss1)
+                break
+            if j == len(city[s]) - 1:
+                if q == None:
+                    dict1.append(" ")
+        # print(dict1)
 
-    k=re.match(r'.*?(县|区|市)',m)
-    if k:
-        kk=k.group()
-        dict1.append(kk)
-        m=re.sub(kk,"",m,1)
+        k = re.match(r'.*?(县|区|市)', m)
+        if k:
+            kk = k.group()
+            dict1.append(kk)
+            m = re.sub(kk, "", m, 1)
+        else:
+            dict1.append("")
+        k = re.match(r'.*?(街道|镇|乡)', m)
+        if k:
+            kk = k.group()
+            dict1.append(kk)
+            m = re.sub(kk, "", m, 1)
+        else:
+            dict1.append("")
+        dict1.append(m)
+        dict["地址"] = dict1
+        # print(dict)
+        Json = json.dumps(dict, indent=4, ensure_ascii=False)
+        print(Json)
+
+
+
     else:
-        dict1.append("")
-    k=re.match(r'.*?(街道|镇|乡)',m)
-    if k:
-        kk = k.group()
-        dict1.append(kk)
-        m = re.sub(kk, "", m, 1)
-    else:
-        dict1.append("")
-    dict1.append(m)
-    dict["地址"] = dict1
-    #print(dict)
-    Json = json.dumps(dict, indent=4, ensure_ascii=False)
-    print(Json)
+        x = re.sub('2!', "", x, 1)
+        x = re.sub("1!", "", x, 1)
+        x = re.sub("省", "", x, 1)
+        x = re.sub("回族自治区", "", x, 1)
+        x = re.sub("自治区", "", x, 1)
+        x = re.sub("维吾尔族自治区", "", x, 1)
+        x = re.sub("壮族自治区", "", x, 1)
+        print(x)
+        llist = x.split(",", 1)
+        dict = {}
+        dict["姓名"] = llist[0]
+        y = re.findall(r"\d\d\d\d\d\d\d\d\d\d\d", llist[1])
+        # print(y)
+        # y=re.findall(r"\d\d\d\d\d\d\d\d\d\d\d",llist[1])
+        dict["手机"] = y[0]
+        m = re.sub(y[0], "", llist[1], 1)  # 原地址中去掉号码
+        # print(m)
+        # print(dict)
+        dict1 = []
+        for i in range(len(province)):
+            p = re.match(province[i], m)
+            if (p):
+                s = i
+                ss = p.group()
+                if (i < 4):
+                    dict1.append(ss)
+                elif (5 < i < 26):
+                    ss2 = p.group()
+                    ss = p.group() + '省'
+                    dict1.append(ss)
+                    m = re.sub(ss2, "", m, 1)
 
+                elif (i == 27):
+                    ss2 = p.group()
+                    ss = p.group() + '回族自治区'
+                    dict1.append(ss)
+                    m = re.sub(ss2, "", m, 1)
+                elif (27 < i < 30):
+                    ss2 = p.group()
+                    ss = p.group() + '自治区'
+                    dict1.append(ss)
+                    m = re.sub(ss2, "", m, 1)
+                elif (i == 30):
+                    ss2 = p.group()
+                    ss = p.group() + '维吾尔族自治区'
+                    dict1.append(ss)
+                    m = re.sub(ss2, "", m, 1)
+                else:
+                    ss2 = p.group()
+                    ss = p.group() + '壮族自治区'
+                    dict1.append(ss)
+                    m = re.sub(ss2, "", m, 1)
+                break
 
+        for j in range(len(city[s])):
+            q = re.match(city[s][j], m)
+            # print(m)
+            if (q):
+                s1 = q
+                ss1 = q.group() + '市'
+                # print(ss1)
+                dict1.append(ss1)
+                w = re.match(ss1, m)
+                if w:
+                    m = re.sub(ss1, "", m, 1)
+                else:
+                    m = re.sub(q.group(), "", m, 1)
+                # dict1.append(ss1)
+                break
+            if j == len(city[s]) - 1:
+                if q == None:
+                    dict1.append(" ")
+        # print(dict1)
 
-else:
-    x=re.sub('2!',"",x,1)
-    x = re.sub("1!", "", x, 1)
-    x = re.sub("省", "", x, 1)
-    x = re.sub("回族自治区", "", x, 1)
-    x = re.sub("自治区", "", x, 1)
-    x = re.sub("维吾尔族自治区", "", x, 1)
-    x = re.sub("壮族自治区", "", x, 1)
-    print(x)
-    llist = x.split(",", 1)
-    dict = {}
-    dict["姓名"] = llist[0]
-    y = re.findall(r"\d\d\d\d\d\d\d\d\d\d\d", llist[1])
-    # print(y)
-    # y=re.findall(r"\d\d\d\d\d\d\d\d\d\d\d",llist[1])
-    dict["手机"] = y[0]
-    m = re.sub(y[0], "", llist[1], 1)  # 原地址中去掉号码
-    # print(m)
-    # print(dict)
-    dict1 = []
-    for i in range(len(province)):
-        p = re.match(province[i], m)
-        if (p):
-            s = i
-            ss = p.group()
-            if (i < 4):
-                dict1.append(ss)
-            elif (5 < i < 26):
-                ss2 = p.group()
-                ss = p.group() + '省'
-                dict1.append(ss)
-                m = re.sub(ss2, "", m, 1)
-
-            elif (i == 27):
-                ss2 = p.group()
-                ss = p.group() + '回族自治区'
-                dict1.append(ss)
-                m = re.sub(ss2, "", m, 1)
-            elif (27 < i < 30):
-                ss2 = p.group()
-                ss = p.group() + '自治区'
-                dict1.append(ss)
-                m = re.sub(ss2, "", m, 1)
-            elif (i == 30):
-                ss2 = p.group()
-                ss = p.group() + '维吾尔族自治区'
-                dict1.append(ss)
-                m = re.sub(ss2, "", m, 1)
-            else:
-                ss2 = p.group()
-                ss = p.group() + '壮族自治区'
-                dict1.append(ss)
-                m = re.sub(ss2, "", m, 1)
-            break
-
-    for j in range(len(city[s])):
-        q = re.match(city[s][j], m)
-        #print(m)
-        if (q):
-            s1 = q
-            ss1 = q.group() + '市'
-            # print(ss1)
-            dict1.append(ss1)
-            w = re.match(ss1, m)
-            if w:
-                m = re.sub(ss1, "", m, 1)
-            else:
-                m = re.sub(q.group(), "", m, 1)
-            # dict1.append(ss1)
-            break
-        if j == len(city[s]) - 1:
-            if q == None:
-                dict1.append(" ")
+        k = re.match(r'.*?(县|区|市)', m)
+        if k:
+            kk = k.group()
+            dict1.append(kk)
+            m = re.sub(kk, "", m, 1)
+        else:
+            dict1.append("")
+        k = re.match(r'.*?(街道|镇|乡)', m)
+        if k:
+            kk = k.group()
+            dict1.append(kk)
+            m = re.sub(kk, "", m, 1)
+        else:
+            dict1.append("")
+        k = re.match(r'.*?(路)', m)
+        if k:
+            kk = k.group()
+            dict1.append(kk)
+            m = re.sub(kk, "", m, 1)
+        else:
+            dict1.append("")
+        k = re.match(r'.*?(号)', m)
+        if k:
+            kk = k.group()
+            dict1.append(kk)
+            m = re.sub(kk, "", m, 1)
+        else:
+            dict1.append("")
+        dict1.append(m)
+        dict["地址"] = dict1
+        Json = json.dumps(dict, indent=4, ensure_ascii=False)
+        print(Json)
     # print(dict1)
-
-    k = re.match(r'.*?(县|区|市)', m)
-    if k:
-        kk = k.group()
-        dict1.append(kk)
-        m = re.sub(kk, "", m, 1)
-    else:
-        dict1.append("")
-    k = re.match(r'.*?(街道|镇|乡)', m)
-    if k:
-        kk = k.group()
-        dict1.append(kk)
-        m = re.sub(kk, "", m, 1)
-    else:
-        dict1.append("")
-    k=re.match(r'.*?(路)',m)
-    if k:
-        kk = k.group()
-        dict1.append(kk)
-        m = re.sub(kk, "", m, 1)
-    else:
-        dict1.append("")
-    k=re.match(r'.*?(号)',m)
-    if k:
-        kk = k.group()
-        dict1.append(kk)
-        m = re.sub(kk, "", m, 1)
-    else:
-        dict1.append("")
-    dict1.append(m)
-    dict["地址"]=dict1
-    Json = json.dumps(dict, indent=4, ensure_ascii=False)
-    print(Json)
-   # print(dict1)
 

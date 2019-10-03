@@ -86,13 +86,13 @@ def creatshi():  # 市级列表
     return allCityList
 
 
-x = input()
+
+sheng = creatsheng()
+shi = creatshi()
 while(1):
     x = input()
     if(x == "END"):
         break
-    sheng = creatsheng()
-    shi = creatshi()
     x = x.replace(".", "")
     if x[0] == "1":
         dict = {}

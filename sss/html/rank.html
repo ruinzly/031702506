@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>排行榜</title>
+    <link rel="stylesheet" href="../css/rank.css">
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/rank.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="rank">
+        <div class="rank0">
+            <div class="rank01">
+                <input type="button" class="button01" onclick="window.location.href='result.html'">
+            </div>
+            <!--<div class="rank02"><p class="main"><b>排行榜</b></p></div>
+            <div class="rank03"><p class="main1"><b>福建十三水</b></p></div>-->
+            <div class="rank04">
+<!--                <li class="a"><b>游戏在线</b></li>-->
+            </div>
+        </div>
+        <div class="rank1">
+            <table id="table1" style="border-spacing:0">
+                <tr>
+                    <th class="th1">排名</th>
+                    <th class="th1">玩家ID</th>
+                    <th class="th1">玩家名</th>
+                    <th class="th1">分数</th>
+                </tr>
+                <tr>
+                    <td id="td01"></td>
+                    <td id="td02"></td>
+                    <td id="td03"></td>
+                    <td id="td04"></td>
+                </tr>
+                <tr>
+                    <td id="td11"></td>
+                    <td id="td12"></td>
+                    <td id="td13"></td>
+                    <td id="td14"></td>
+                </tr>
+                <tr>
+                    <td id="td21"></td>
+                    <td id="td22"></td>
+                    <td id="td23"></td>
+                    <td id="td24"></td>
+                </tr>
+                <tr>
+                    <td id="td31"></td>
+                    <td id="td32"></td>
+                    <td id="td33"></td>
+                    <td id="td34"></td>
+                </tr>
+                <tr>
+                    <td id="td41"></td>
+                    <td id="td42"></td>
+                    <td id="td43"></td>
+                    <td id="td44"></td>
+                </tr>
+                <tr>
+                    <td id="td51"></td>
+                    <td id="td52"></td>
+                    <td id="td53"></td>
+                    <td id="td54"></td>
+                </tr>
+                <tr>
+                    <td id="td61"></td>
+                    <td id="td62"></td>
+                    <td id="td63"></td>
+                    <td id="td64"></td>
+                </tr>
+                <tr>
+                    <td id="td71"></td>
+                    <td id="td72"></td>
+                    <td id="td73"></td>
+                    <td id="td74"></td>
+                </tr>
+                <tr>
+                    <td id="td81"></td>
+                    <td id="td82"></td>
+                    <td id="td83"></td>
+                    <td id="td84"></td>
+                <tr>
+                    <td id="td91"></td>
+                    <td id="td92"></td>
+                    <td id="td93"></td>
+                    <td id="td94"></td>
+                <tr>
+                    <td id="td101"></td>
+                    <td id="td102"></td>
+                    <td id="td103"></td>
+                    <td id="td104"></td>
+                <tr>
+                    <td id="td111"></td>
+                    <td id="td112"></td>
+                    <td id="td113"></td>
+                    <td id="td114"></td>
+                <tr>
+                    <td id="td121"></td>
+                    <td id="td122"></td>
+                    <td id="td123"></td>
+                    <td id="td124"></td>
+                <tr>
+                    <td id="td131"></td>
+                    <td id="td132"></td>
+                    <td id="td133"></td>
+                    <td id="td134"></td>
+                <tr>
+                    <td id="td141"></td>
+                    <td id="td142"></td>
+                    <td id="td143"></td>
+                    <td id="td144"></td>
+                <tr>
+                    <td id="td151"></td>
+                    <td id="td152"></td>
+                    <td id="td153"></td>
+                    <td id="td154"></td>
+                <tr>
+                    <td id="td161"></td>
+                    <td id="td162"></td>
+                    <td id="td163"></td>
+                    <td id="td164"></td>
+                <tr>
+                    <td id="td171"></td>
+                    <td id="td172"></td>
+                    <td id="td173"></td>
+                    <td id="td174"></td>
+                <tr>
+                    <td id="td181"></td>
+                    <td id="td182"></td>
+                    <td id="td183"></td>
+                    <td id="td184"></td>
+                <tr>
+                    <td id="td191"></td>
+                    <td id="td192"></td>
+                    <td id="td193"></td>
+                    <td id="td194"></td>
+                <tr>
+                    <td id="td201"></td>
+                    <td id="td202"></td>
+                    <td id="td203"></td>
+                    <td id="td204"></td>
+                <tr>
+                    <td id="td211"></td>
+                    <td id="td212"></td>
+                    <td id="td213"></td>
+                    <td id="td214"></td>
+                <tr>
+                    <td id="td221"></td>
+                    <td id="td222"></td>
+                    <td id="td223"></td>
+                    <td id="td224"></td>
+                <tr>
+                    <td id="td231"></td>
+                    <td id="td232"></td>
+                    <td id="td233"></td>
+                    <td id="td234"></td>
+                <tr>
+                    <td id="td241"></td>
+                    <td id="td242"></td>
+                    <td id="td243"></td>
+                    <td id="td244"></td>
+                <tr>
+                    <td id="td251"></td>
+                    <td id="td252"></td>
+                    <td id="td253"></td>
+                    <td id="td254"></td>
+                <tr>
+                    <td id="td261"></td>
+                    <td id="td262"></td>
+                    <td id="td263"></td>
+                    <td id="td264"></td>
+                <tr>
+                    <td id="td271"></td>
+                    <td id="td272"></td>
+                    <td id="td273"></td>
+                    <td id="td274"></td>
+                <tr>
+                    <td id="td281"></td>
+                    <td id="td282"></td>
+                    <td id="td283"></td>
+                    <td id="td284"></td>
+                <tr>
+                    <td id="td291"></td>
+                    <td id="td292"></td>
+                    <td id="td293"></td>
+                    <td id="td294"></td>
+                <tr>
+                    <td id="td301"></td>
+                    <td id="td302"></td>
+                    <td id="td303"></td>
+                    <td id="td304"></td>
+                <tr>
+                    <td id="td311"></td>
+                    <td id="td312"></td>
+                    <td id="td313"></td>
+                    <td id="td314"></td>
+                <tr>
+                    <td id="td321"></td>
+                    <td id="td322"></td>
+                    <td id="td323"></td>
+                    <td id="td324"></td>
+                <tr>
+                    <td id="td331"></td>
+                    <td id="td332"></td>
+                    <td id="td333"></td>
+                    <td id="td334"></td>
+                <tr>
+                    <td id="td341"></td>
+                    <td id="td342"></td>
+                    <td id="td343"></td>
+                    <td id="td344"></td>
+                <tr>
+                    <td id="td351"></td>
+                    <td id="td352"></td>
+                    <td id="td353"></td>
+                    <td id="td354"></td>
+                <tr>
+                    <td id="td361"></td>
+                    <td id="td362"></td>
+                    <td id="td363"></td>
+                    <td id="td364"></td>
+                <tr>
+                    <td id="td371"></td>
+                    <td id="td372"></td>
+                    <td id="td373"></td>
+                    <td id="td374"></td>
+                <tr>
+                    <td id="td381"></td>
+                    <td id="td382"></td>
+                    <td id="td383"></td>
+                    <td id="td384"></td>
+                <tr>
+                    <td id="td391"></td>
+                    <td id="td392"></td>
+                    <td id="td393"></td>
+                    <td id="td394"></td>
+                <tr>
+                    <td id="td401"></td>
+                    <td id="td402"></td>
+                    <td id="td403"></td>
+                    <td id="td404"></td>
+                <tr>
+                    <td id="td411"></td>
+                    <td id="td412"></td>
+                    <td id="td413"></td>
+                    <td id="td414"></td>
+                <tr>
+                    <td id="td421"></td>
+                    <td id="td422"></td>
+                    <td id="td423"></td>
+                    <td id="td424"></td>
+                <tr>
+                    <td id="td431"></td>
+                    <td id="td432"></td>
+                    <td id="td433"></td>
+                    <td id="td434"></td>
+                <tr>
+                    <td id="td441"></td>
+                    <td id="td442"></td>
+                    <td id="td443"></td>
+                    <td id="td444"></td>
+                <tr>
+                    <td id="td451"></td>
+                    <td id="td452"></td>
+                    <td id="td453"></td>
+                    <td id="td454"></td>
+                <tr>
+                    <td id="td461"></td>
+                    <td id="td462"></td>
+                    <td id="td463"></td>
+                    <td id="td464"></td>
+                <tr>
+                    <td id="td471"></td>
+                    <td id="td472"></td>
+                    <td id="td473"></td>
+                    <td id="td474"></td>
+                <tr>
+                    <td id="td481"></td>
+                    <td id="td482"></td>
+                    <td id="td483"></td>
+                    <td id="td484"></td>
+                <tr>
+                    <td id="td491"></td>
+                    <td id="td492"></td>
+                    <td id="td493"></td>
+                    <td id="td494"></td>
+                <tr>
+                    <td id="td501"></td>
+                    <td id="td502"></td>
+                    <td id="td503"></td>
+                    <td id="td504"></td>
+                <tr>
+                    <td id="td511"></td>
+                    <td id="td512"></td>
+                    <td id="td513"></td>
+                    <td id="td514"></td>
+                <tr>
+                    <td id="td521"></td>
+                    <td id="td522"></td>
+                    <td id="td523"></td>
+                    <td id="td524"></td>
+                <tr>
+                    <td id="td531"></td>
+                    <td id="td532"></td>
+                    <td id="td533"></td>
+                    <td id="td534"></td>
+                <tr>
+                    <td id="td541"></td>
+                    <td id="td542"></td>
+                    <td id="td543"></td>
+                    <td id="td544"></td>
+                <tr>
+                    <td id="td551"></td>
+                    <td id="td552"></td>
+                    <td id="td553"></td>
+                    <td id="td554"></td>
+                <tr>
+                    <td id="td561"></td>
+                    <td id="td562"></td>
+                    <td id="td563"></td>
+                    <td id="td564"></td>
+                <tr>
+                    <td id="td571"></td>
+                    <td id="td572"></td>
+                    <td id="td573"></td>
+                    <td id="td574"></td>
+                <tr>
+                    <td id="td581"></td>
+                    <td id="td582"></td>
+                    <td id="td583"></td>
+                    <td id="td584"></td>
+                <tr>
+                    <td id="td591"></td>
+                    <td id="td592"></td>
+                    <td id="td593"></td>
+                    <td id="td594"></td>
+                <tr>
+                    <td id="td601"></td>
+                    <td id="td602"></td>
+                    <td id="td603"></td>
+                    <td id="td604"></td>
+                <tr>
+                    <td id="td611"></td>
+                    <td id="td612"></td>
+                    <td id="td613"></td>
+                    <td id="td614"></td>
+                <tr>
+                    <td id="td621"></td>
+                    <td id="td622"></td>
+                    <td id="td623"></td>
+                    <td id="td624"></td>
+                <tr>
+                    <td id="td631"></td>
+                    <td id="td632"></td>
+                    <td id="td633"></td>
+                    <td id="td634"></td>
+                <tr>
+                    <td id="td641"></td>
+                    <td id="td642"></td>
+                    <td id="td643"></td>
+                    <td id="td644"></td>
+                <tr>
+                    <td id="td651"></td>
+                    <td id="td652"></td>
+                    <td id="td653"></td>
+                    <td id="td654"></td>
+                <tr>
+                    <td id="td661"></td>
+                    <td id="td662"></td>
+                    <td id="td663"></td>
+                    <td id="td664"></td>
+                <tr>
+                    <td id="td671"></td>
+                    <td id="td672"></td>
+                    <td id="td673"></td>
+                    <td id="td674"></td>
+                <tr>
+                    <td id="td681"></td>
+                    <td id="td682"></td>
+                    <td id="td683"></td>
+                    <td id="td684"></td>
+                <tr>
+                    <td id="td691"></td>
+                    <td id="td692"></td>
+                    <td id="td693"></td>
+                    <td id="td694"></td>
+                <tr>
+                    <td id="td701"></td>
+                    <td id="td702"></td>
+                    <td id="td703"></td>
+                    <td id="td704"></td>
+                <tr>
+                    <td id="td711"></td>
+                    <td id="td712"></td>
+                    <td id="td713"></td>
+                    <td id="td714"></td>
+                <tr>
+                    <td id="td721"></td>
+                    <td id="td722"></td>
+                    <td id="td723"></td>
+                    <td id="td724"></td>
+                <tr>
+                    <td id="td731"></td>
+                    <td id="td732"></td>
+                    <td id="td733"></td>
+                    <td id="td734"></td>
+                <tr>
+                    <td id="td741"></td>
+                    <td id="td742"></td>
+                    <td id="td743"></td>
+                    <td id="td744"></td>
+                <tr>
+                    <td id="td751"></td>
+                    <td id="td752"></td>
+                    <td id="td753"></td>
+                    <td id="td754"></td>
+                <tr>
+                    <td id="td761"></td>
+                    <td id="td762"></td>
+                    <td id="td763"></td>
+                    <td id="td764"></td>
+                <tr>
+                    <td id="td771"></td>
+                    <td id="td772"></td>
+                    <td id="td773"></td>
+                    <td id="td774"></td>
+                <tr>
+                    <td id="td781"></td>
+                    <td id="td782"></td>
+                    <td id="td783"></td>
+                    <td id="td784"></td>
+                <tr>
+                    <td id="td791"></td>
+                    <td id="td792"></td>
+                    <td id="td793"></td>
+                    <td id="td794"></td>
+                <tr>
+                    <td id="td801"></td>
+                    <td id="td802"></td>
+                    <td id="td803"></td>
+                    <td id="td804"></td>
+                <tr>
+                    <td id="td811"></td>
+                    <td id="td812"></td>
+                    <td id="td813"></td>
+                    <td id="td814"></td>
+                <tr>
+                    <td id="td821"></td>
+                    <td id="td822"></td>
+                    <td id="td823"></td>
+                    <td id="td824"></td>
+                <tr>
+                    <td id="td831"></td>
+                    <td id="td832"></td>
+                    <td id="td833"></td>
+                    <td id="td834"></td>
+                <tr>
+                    <td id="td841"></td>
+                    <td id="td842"></td>
+                    <td id="td843"></td>
+                    <td id="td844"></td>
+                <tr>
+                    <td id="td851"></td>
+                    <td id="td852"></td>
+                    <td id="td853"></td>
+                    <td id="td854"></td>
+                <tr>
+                    <td id="td861"></td>
+                    <td id="td862"></td>
+                    <td id="td863"></td>
+                    <td id="td864"></td>
+                <tr>
+                    <td id="td871"></td>
+                    <td id="td872"></td>
+                    <td id="td873"></td>
+                    <td id="td874"></td>
+                <tr>
+                    <td id="td881"></td>
+                    <td id="td882"></td>
+                    <td id="td883"></td>
+                    <td id="td884"></td>
+                <tr>
+                    <td id="td901"></td>
+                    <td id="td902"></td>
+                    <td id="td903"></td>
+                    <td id="td904"></td>
+                <tr>
+                    <td id="td911"></td>
+                    <td id="td912"></td>
+                    <td id="td913"></td>
+                    <td id="td914"></td>
+
+                </tr>
+            </table>
+        </div>
+    </div>    
+</body>
+</html>
